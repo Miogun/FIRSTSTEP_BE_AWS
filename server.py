@@ -12,7 +12,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route('/test')
 def test():
-  return "test"
+  return "testpytho"
 
 
 # 데이터 베이스 연결
@@ -403,4 +403,4 @@ def boardreturn(boardId:int) :
   return "SUCCESS"
 
 if __name__ == "__main__" :
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=False)
