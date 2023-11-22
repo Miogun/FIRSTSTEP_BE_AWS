@@ -21,6 +21,7 @@ def getCon():
                      user="admin", password="Password", 
                      db="firststep",
                      charset="utf8",
+                     port=3306,
                      cursorclass=pymysql.cursors.DictCursor)
 
 def json_default(value):
