@@ -10,6 +10,11 @@ SECRET_KEY='secret_key'
 app = Flask(__name__)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
+@app.route('/test')
+def test():
+  return "test"
+
+
 # 데이터 베이스 연결
 def getCon():
   return pymysql.connect(host="myrds.coysatc2jipz.ap-northeast-2.rds.amazonaws.com", 
