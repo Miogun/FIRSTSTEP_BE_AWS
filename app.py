@@ -46,7 +46,7 @@ def search(searchWordKey:str, searchWord:str) :
   return json.dumps(data, default=json_default)
 
 # boardContent.js 게시물 상세정보
-@app.route('/board/detail/<boardId>/<token>', methods=['GET'])
+@app.route('/board/detail/<boardId>', methods=['GET'])
 def getboardId(boardId : int, token : str):
 
   payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
