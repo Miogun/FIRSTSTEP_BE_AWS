@@ -46,11 +46,9 @@ def search(searchWordKey:str, searchWord:str) :
   return json.dumps(data, default=json_default)
 
 # boardContent.js 게시물 상세정보
+# boardContent.js 게시물 상세정보
 @app.route('/board/detail/<boardId>', methods=['GET'])
-def getboardId(boardId : int, token : str):
-
-  payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
-  print(payload)
+def getboardId(boardId : int):
 
   con = getCon()
   cursor = con.cursor()
@@ -69,12 +67,11 @@ def getboardId(boardId : int, token : str):
   else :
     cursor.execute("SELECT b.boardId, b.title, u.userId, u.ID, b.content, b.location, date_format(b.createAt, '%Y-%m-%d') AS createAt, r.rent, r.userId AS rentusreId  FROM board as b LEFT JOIN user as u on u.userId = b.userId LEFT JOIN rent as r on r.boardId = b.boardId WHERE b.boardId = {} ORDER BY b.createAt DESC;".format(boardId))
     
-    data = cursor.fetchone()
+    data = cursor.fetchall()
     cursor.close()
       
     # 반환할 때 json형식으로 반환
-    return { "boardData" : data,
-            "userData" : payload}
+    return json.dumps(data, default=json_default)
 
 #Mypage.js 대여목록조회
 @app.route('/mypage/<token>', methods=['GET'])
