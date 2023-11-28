@@ -43,12 +43,12 @@
 
 ## Architecture
 <center>
-    <img src="./architecture.png" alt="FIRSTSTEP"/>    
+    <img src="./readMesrc/architecture.png" alt="FIRSTSTEP"/>    
 </center>
 
 ## ✏️DB
 <center>
-    <img src="./db.png" alt="FIRSTSTEP"/>    
+    <img src="./readMesrc/db.png" alt="FIRSTSTEP"/>    
 </center>
 
 ## 🏃 Steps to run
